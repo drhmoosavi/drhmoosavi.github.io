@@ -1,23 +1,14 @@
-<header class="site-header">
-  <div class="site-branding">
-    <a href="{{ "/" | relURL }}">Hossein Moosavi</a>
-  </div>
+<div class="nav-bar">
+  <button class="toggle" aria-label="Toggle theme">
+    <span class="material-symbols-outlined icon-sun">light_mode</span>
+    <span class="material-symbols-outlined icon-moon">dark_mode</span>
+  </button>
 
-  <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">Theme</button>
-
-  <nav aria-label="Primary">
-    <ul class="main-nav">
-      {{ $currentPage := . }}
-      {{ range .Site.Menus.main }}
-        <li>
-          <a href="{{ .URL }}"
-             {{ if $currentPage.IsMenuCurrent .Menu . }}class="active" aria-current="page"
-             {{ else if $currentPage.HasMenuCurrent .Menu . }}class="active" aria-current="true"
-             {{ end }}>
-             {{ .Name }}
-          </a>
-        </li>
-      {{ end }}
-    </ul>
+  <nav class="head-buttons" aria-label="Primary navigation">
+    <a href="/">Home</a>
+    <a href="/about.html">Expertise</a>
+    <a href="/research.html">Research</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/blog/">Blog</a>
   </nav>
-</header>
+</div>

@@ -1,0 +1,639 @@
+/* ── fonts.css ── */
+/* Must be *the very first* rules in this file: */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+@import url("https://www.w3schools.com/lib/w3.css");
+@import url('https://fonts.googleapis.com');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Annie+Use+Your+Telescope&family=Babylonica&family=Bad+Script&family=Bilbo+Swash+Caps&family=Cairo:wght@200..1000&family=Calligraffitti&family=Caramel&family=Caveat:wght@400..700&family=Chewy&family=Comforter&family=Comforter+Brush&family=Coming+Soon&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Delius+Unicase:wght@400;700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Ephesis&family=Fredericka+the+Great&family=Grape+Nuts&family=Handlee&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Kaushan+Script&family=Marhey:wght@300..700&family=Neucha&family=Oooh+Baby&family=Playwrite+AU+QLD+Guides&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+MX+Guides&family=Poetsen+One&family=Ruwudu:wght@400;500;600;700&family=Shadows+Into+Light&family=The+Nautigal:wght@400;700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* general css - Responsive stylesheet for HTML5 semantic layout with Container Queries */
+@font-face {
+  font-family: 'Berthusen';
+  src: url('./asset/fonts/berthusen/BerthusenDemo.ttf') format('ttf'),
+       url('./asset/fonts/Dellmonte/Dellmonte.ttf') format('ttf');
+  font-display: swap; /* recommended for performance */
+}
+/* ====================
+   CSS Variables & Theme Definitions
+   ==================== */
+:root {
+  /* Light Theme Colors */
+  --bg-color: #f0eae2 !important;
+  --fg-color: #000000 !important;
+  --h1-color: #ec9e0d !important;
+  --h2-color: #3f26d0 !important;
+  --h3-color: #481e61 !important;
+  /* Common Transformations */
+  --transform-center: translate(-50%, -50%);
+  /* Scrollbar (Light Theme) */
+  --scrollbar-track: #f0f0f0 !important;
+  --scrollbar-thumb: #c0c0c0 !important;
+  --scrollbar-size: 0.4rem !important;
+
+  /* Typography & Layout Defaults */
+  --font-family-base: "Aleo", serif !important;
+  --font-family-size: 1.25rem !important;
+  --font-weight-h1: 700 !important;
+  --font-weight-h2: 500 !important;
+  --font-weight-h3: 400 !important;
+  --line-height: 1.5 !important;
+  --font-size-h1: 2.5rem !important;
+  --font-size-h2: 1.75rem !important;
+  --font-size-h3: 1.5rem !important;
+
+  /* Stacking context indices */
+  --z-sidebar: 10 !important;            /* sidebars at the bottom */
+  --z-header: 20 !important;             /* header above sidebars */
+  --z-theme-button: 30 !important;       /* buttons above header */
+  --toggle-border-color: #2808f4 !important;
+  --social-icons: #451c51  !important;
+  --btn-txt-color: #3f26d0 !important;
+}
+
+/* Dark Theme Overrides */
+:root[data-theme="dark"] {
+  --bg-color: #000000 !important;
+  --fg-color: #ffffff !important;
+  --h1-color: #ec9e0d !important;
+  --h2-color: #2a8aea !important;
+  --h3-color: #61bfee !important;
+  --scrollbar-track: #2a2a2a !important;
+  --scrollbar-thumb: #555555 !important;
+  --scrollbar-size: 0.4rem !important;
+  --toggle-border-color: #f5bb1a !important;
+  --social-icons: #f5b02e !important;
+  --btn-txt-color: #f5b02e !important;
+}
+ /* Scrollbar Styling */
+ ::-webkit-scrollbar { width: var(--scrollbar-size); height: var(--scrollbar-size); }
+ ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+ ::-webkit-scrollbar-thumb {
+   background-color: var(--scrollbar-thumb);
+   border-radius: calc(var(--scrollbar-size) / 2);
+   border: calc(var(--scrollbar-size) / 4) solid transparent;
+ }
+/* Keyframes for typing animation: gradually reveal text width */
+@keyframes typing {
+  from { width: 0; }          /* Start with no characters shown */
+  to { width: 12ch; }         /* End with 12 characters shown */
+}
+
+/* Keyframes for caret blinking: creates a flickering cursor effect */
+@keyframes blinkCaret {
+  0%, 100% { border-right-color: transparent; }  /* Caret invisible at start and end */
+  50%      { border-right-color: #fcfcfcba; }        /* Caret visible at midpoint */
+}
+
+@keyframes floatFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes floatFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+/* ====================
+   Global Resets & Base
+   ==================== */
+   html,
+   body {
+     margin: 0;
+     padding: 0;
+     width: 100vw;
+     height: 100vh;
+     overflow: hidden;
+     background: var(--bg-color);
+     color: var(--fg-color);
+     font-family: var(--font-family-base);
+     font-size: var(--font-size-base);
+     line-height: var(--line-height);
+     font-weight: var(--font-weight);
+   }
+/* =====================================
+  Unordered List Styling
+  Formats unordered lists with specific typography, spacing, and colors.
+========================================== */
+ul {
+  position: relative;
+  font-family: "Edu VIC WA NT Beginner", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  padding-left: 2rem;
+  padding-bottom: 0rem;
+  margin-bottom: 0.3rem;
+  color: var(--h3-color);
+  text-align: left;
+  text-wrap: pretty;
+  text-overflow: hidden;
+}
+
+/* =====================================
+  List Item Styling
+  Uses a circle marker for list items.
+========================================== */
+li {
+  list-style: circle;
+  position: relative;
+}
+/* =====================================
+  Section Styling
+  Applies padding, border, and margin to the <section> element.
+========================================== */
+.section-block,
+#section {
+  padding-bottom: 0rem;
+  margin-bottom: 1rem;
+}
+/* =====================================
+  Section Title Styling
+  Sets up font, size, weight, and color for elements with class .section-title.
+========================================== */
+.section-title {
+  font-family: "Fredericka the Great", serif; 
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--h1-color);
+  line-height: 1.4rem;
+  padding-bottom: 0;
+  padding-top: 0.5em;
+}
+
+/* =====================================
+  Expertise Subsection Styling
+  Adds spacing above subsections that pertain to expertise.
+========================================== */
+.expertise-subsection {
+  margin-top: 0.5rem;
+}
+
+/* =====================================
+  Expertise Subsection Header Styling
+  Customizes the headers in expertise subsections with typography and spacing.
+========================================== */
+.expertise-subsection h3 {
+  font-family: 'Aleo', serif;
+  position: relative;
+  font-size: var(--font-size-h3);
+  color: var(--h2-color);
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+  line-height: 1rem;
+}
+/* ====================
+   Layout Containers & Queries
+   ==================== */
+.container {  
+  display: grid;
+  transition: none; /* let GSAP handle it */
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 0.2fr 2.1fr 0.2fr; /* Added a row for the footer */
+  gap: 0px;
+  background: var(--bg-color);
+  grid-auto-flow: row;
+  width: 100vw;
+  height: 100vh;
+  grid-template-areas:
+    "nav-bar nav-bar"
+    "left-col right-col"
+    "footer footer"; /* Added the footer area */
+}
+.left-col {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: auto 1fr; /* if you have multiple rows/content */
+  /* pin children to top-left: */
+  justify-items:flex-start;  /* horizontal alignment of grid items */
+  align-items: start;    /* vertical alignment of grid items */
+  padding-left: 5rem;
+  padding-right: 20rem;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  overflow-y: scroll; 
+  min-width: 90vw;
+}
+/* Styles for the right column section */
+.right-col { 
+  display: grid;                         /* Uses CSS Grid layout */
+  justify-items: start;                  /* Aligns grid items to start */
+  align-items: start;                    /* Vertically aligns items to top */
+  padding-left: 3rem;                    /* Left padding */
+  padding-top: 0.6rem;                   /* Top padding */
+  border-radius: 6px;                   /* Rounded corners */
+  box-shadow: -1px 1.5px 1.5px var(--toggle-border-color);
+  backdrop-filter: blur(13px);           /* Blur effect for background */
+  -webkit-backdrop-filter: blur(13px);   /* Safari support for blur */
+  background: #ffffff00;
+  overflow-y: scroll;                      /* Enables vertical scrolling */
+  max-height: 100%;                      /* Constrains height */
+  word-wrap: break-word;                 /* Ensures text wrapping */
+  word-break: break-word;                /* Breaks words when needed */
+  white-space: normal;                   /* Normal text wrapping */
+  --scrollbar-track: #f0f0f000 !important;
+  --scrollbar-thumb: #c0c0c000 !important;
+  --scrollbar-size: 0rem !important;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-bar { 
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    justify-items: center;
+    align-items: center;
+    grid-area: nav-bar;
+    cursor: pointer;
+    z-index: var(--z-header);
+    color: var(--fg-color);
+    }
+.nav-bar .toggle {
+  justify-self: start;
+}
+.nav-bar .head-buttons {
+  justify-self: center;
+}
+
+/* Sidebar styling */
+.sidebar {
+  display: flex;
+  position: relative;
+  overflow:hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: #0c1e6602;
+  box-shadow: 0 0 10px #2fc8f2fd;
+  width: 7.2rem;
+  height: 37%;
+  top: 30%;
+  z-index: var(--z-sidebar);
+  padding: 0rem;
+  margin-left: -20px;
+  border-radius: 0 45% 45% 0;
+  transform: scale(0.9);
+  transition: transform 0.2s ease-in-out, transform 0.1s ease-in-out; /* Smooth transition for shadow and transform */
+  animation: floatFadeIn 0.3s ease-out 0.5s forwards;
+  opacity: 0;
+}
+.sidebar:hover {
+  transform: scale(1);
+}
+
+/* footer styling "Baliung" */
+.footer {
+  grid-area: footer;     /* put it in the named area */
+  display: flex;
+  position: relative;
+  align-items: baseline;
+  text-align: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 5%;
+  padding-bottom: 3%;
+  gap: 0.7rem;
+  background-color: transparent;
+  z-index: var(--z-sidebar);
+  font-family: "Baliung", cursive;
+  font-weight: 500;
+  transition: transform 0.2s ease-in-out; /* Smooth transition for shadow and transform */
+    /* animate.css keyframes by name: */
+    animation-name: flipInX;
+    animation-duration: 0.85s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;           /* keep start/end states */
+    backface-visibility: visible;        /* needed for 3D flips */
+    animation-delay: 0.5s;
+}
+.footer:hover {
+  transform: scale(1.01);
+}
+.footer-name {
+  font-family: "Baliung", cursive;
+  color: #fffffffd; 
+  font-size: 4rem;               
+}
+.footer-title {
+  font-family: "Baliung", cursive;
+  color: #ffffff; 
+  font-size: 2rem;
+}
+/* ====================
+   Animation class
+   ==================== */
+/* Typing animation class: applies typing and blinkCaret animations */
+.typing-animation {
+  display: inline-block;            /* Allows width animation */
+  margin-bottom: 0.25rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 40px;
+  line-height: 2.2rem;
+  color: #3232c4;
+  white-space: nowrap;              /* Prevents wrapping */
+  overflow: hidden;                 /* Hides text overflow during animation */
+  border-right: .1em solid #e5e0d9f8; /* Adds the caret */
+  border-width: 12px;               /* Defines the thickness of the caret */
+  padding: 5px;
+  width: 0;                         /* Start with no visible text */
+  animation: typing 1.1s steps(16, end) forwards, /* Typing effect */
+             blinkCaret 2s ease-in-out 0s 2 forwards; /* Blinking caret effect */
+}
+/* ====================
+   Typography
+   ==================== */
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+}
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--h1-color);
+}
+h2 {
+  font-size: var(--font-size-h2);
+  color: var(--h2-color);
+}
+h3 {
+  font-size: var(--font-size-h3);
+  color: var(--h3-color);
+}
+h4, h5, h6 {
+  color: var(--fg-color);
+}
+p {
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-family-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  color: var(--fg-color);
+  text-align: justify;
+}
+/* ====================
+   Buttons
+   ==================== */
+/* Social Media Icons */
+.social-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: var(--z-theme-button);
+}
+.social-media svg {
+  width: 2em;  /* Changed from rem to em */
+  height: 2em; /* Changed from rem to em */
+  fill: var(--social-icons);
+  transition: transform 0.2s ease-in-out;
+  animation: floatFadeIn 0.3s ease-out 0.7s forwards;
+  opacity: 0;
+}
+.social-media svg:hover {
+  transform: scale(1.25);
+}
+.social-media a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--toggle-border-color);
+  transition: transform 0.4s ease;
+  outline: 0;
+}
+.social-media a:hover {
+  transform: scale(1.25);
+}
+/* Container for head buttons in the navigation bar */
+.head-buttons {
+  display: flex;              /* Use flexbox layout */
+  overflow: hidden;         /* Hide overflow content */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;        /* Arrange buttons in a row */
+  gap: 2rem;                  /* Set space between buttons */
+  transition: box-shadow 0.3s ease, transform 0.2s ease-in-out; /* Smooth transition for shadow and transform */
+}
+/* Styles for each link/button within head-buttons */
+.head-buttons > a {
+  text-decoration: none;
+  background: none;           /* Remove any default background */
+  border: none;               /* Remove border styling */
+  padding-top: 1rem;          /* Add spacing at the top */
+  transition: transform 0.2s ease; /* Smooth scaling transition on hover */
+  color: var(--btn-txt-color); /* Use button text color from theme */
+  font-size: 2.2rem;            /* Set large font size for emphasis */
+  font-weight: 800;           /* Use a bold font weight */
+  font-family: "berthusen", sans-serif; /* Use custom font with fallback */
+  letter-spacing: 0.17rem;    /* Increase spacing between letters */
+  cursor: pointer;            /* Change cursor to pointer on hover */
+  display: inline-block;      /* Ensure proper spacing and transform behavior */
+   /* common animation settings */
+   animation-name: bounceIn;
+   animation-duration: 0.75s;
+   animation-fill-mode: both;           /* preserve start/end frames */
+   animation-timing-function: ease;
+   backface-visibility: visible;        /* essential for 3D effects */
+}
+/* stagger delays on each of the five links: */
+.head-buttons a:nth-child(1) { animation-delay: 0.2s; }   /* 1st */
+.head-buttons a:nth-child(2) { animation-delay: 0.4s; } /* 2nd */
+.head-buttons a:nth-child(3) { animation-delay: 0.57s; } /* 3rd */
+.head-buttons a:nth-child(4) { animation-delay: 0.8s; } /* 4th */
+.head-buttons a:nth-child(5) { animation-delay: 1s; } /* 5th */
+
+/* Hover effect to slightly enlarge the button */
+.head-buttons > a:hover {
+  transform: scale(1.1);      /* Scale up the button for a hover effect */
+  transition: transform 0.8s ease, color 0.5s ease;
+  text-shadow: 0 0 45px #f7ce77b3; /* Add glowing effect */
+    /* common animation settings */
+    animation-name: flash;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+}
+/* Active state to slightly shrink the button when clicked */
+.head-buttons > a:active {
+  transform: scale(0.9);      /* Scale down the button on active/click state */
+}
+/* Toggle ICONS + TRANSITION  */
+.toggle {
+  position: relative;
+  top: -0.2rem;
+  left: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: transparent;
+  border: 0px solid var(--toggle-border-color);
+  border-radius: 50%;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  z-index: var(--z-theme-button);
+  box-shadow: 0 0 7px var(--toggle-border-color); /* Added box shadow */
+  transition: box-shadow 0.3s ease, transform 0.2s ease-in-out; /* Smooth transition for shadow and transform */
+  animation: floatFadeIn 0.3s ease-out forwards;
+}
+
+.toggle:hover {
+  box-shadow: 0 0 15px var(--toggle-border-color); /* Enhanced shadow on hover */
+}
+/* Base state – defines the transition */
+.toggle > a {
+  transition: transform 0.3s ease;
+}
+/* Hover state – just defines the end transform */
+.toggle > a:hover {
+  transform: scale(1.1);
+}
+  .toggle .icon-sun  { color: #fcb823; }
+  .toggle .icon-moon { color: #3f3416; }
+
+  /* Styles for both sun and moon icons in the theme toggle */
+  .toggle .icon-sun,
+  .toggle .icon-moon {
+    /* Set icon size */
+    font-size: 2.2rem;
+    font-weight: 100;
+    /* Position icons absolutely within toggle button */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Start with icons hidden */
+    opacity: 0;
+    /* Center and rotate icons */
+    transform: translate(-50%, -50%) rotate(45deg);
+    /* Add smooth transitions for icon animations */
+    transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
+  }
+
+  .toggle:hover .icon-sun {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+  color: #ffffff;
+}
+  .toggle:hover .icon-moon {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+  color: #1f0c50;
+}
+/* Toggle ON Styles */
+.toggle.toggle-on {
+  background: transparent; /* Make the background transparent */
+  color: #000000;          /* Set the text color to black */
+  box-shadow: 0 0 7px #193be5db; /* Apply a subtle shadow effect */
+  z-index: var(--z-theme-button); /* Ensure correct stacking order */
+  }
+  /* Moon icon when toggle is ON */
+  .toggle.toggle-on .icon-moon {
+  transform: var(--transform-center); /* Use CSS variable to center the icon */
+  opacity: 1;                         /* Make the moon icon fully visible */
+  }
+/* Ensures the sun icon is visible and positioned correctly when the toggle is not in the "on" state */
+.toggle:not(.toggle-on) .icon-sun {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+/* Media query for bigger screens */
+@media (min-width: 1928px) {
+  .container {
+    margin-left: 0;
+  }
+  
+  .footer-name {
+    font-size: 5em;
+  }
+  
+  .footer-title {
+    font-size: 3em;
+  }
+  
+  .head-buttons {
+    font-size: 5rem;
+    gap: 3rem;
+  }
+  
+  .head-buttons > a {
+    font-size: 3rem;
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 390px) {
+  .sidebar {
+    display: hidden;
+    top: 30%;
+    overflow:visible;
+    height: 50%; /* Adjust sidebar width as well */
+    width: 50%;
+    margin-left: -15%;
+    box-shadow: none;
+  }
+  .social-media svg {
+    width: 80%;
+    height: 80%;
+    gap: 0.4em;
+  }
+.toggle {
+  height: 1.5em; /* Adjust toggle button height */
+  width: 1.5em;  /* Adjust toggle button width */
+}
+  .toggle .icon-sun,
+  .toggle .icon-moon { 
+  font-size: 1.3em; /* Adjust icon size */
+}
+.footer-name {
+  font-size: 1.5em; /* Adjust footer font size */
+}
+.footer-title {
+  font-size: 1.5em; /* Adjust footer title font size */
+}
+.head-buttons {
+  margin-top: 7%;
+  width: 90%; /* Adjust width for smaller screens */
+  overflow: visible;
+  justify-content: flex-end;
+  align-items: center;
+}
+.head-buttons > a {
+  font-size: 1em; /* Adjust font size for smaller screens */ 
+  letter-spacing: 0rem; /* Adjust letter spacing */
+}
+}
+/* Profile photo styling: right-aligned oval with gradient blurred edges and transparency */
+.profile-photo {
+  width: 22%;
+  height: 27%;
+  float: right;
+  margin-left: 2rem;
+  object-fit: cover;
+  border-radius: 5%;
+  background: #f29d81;
+  opacity: 0.85;
+  /* Oval fade edges via inset shadows */
+  box-shadow:
+    inset 0 0 8px 4px #000000df,
+    inset 0 0 16px 8px #000000cb;
+}

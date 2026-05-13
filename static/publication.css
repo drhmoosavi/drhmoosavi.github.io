@@ -1,0 +1,119 @@
+:root {
+  /* Light theme (Academic/Elegant Palette) */
+  --publication-journal-color: #2c3e50; /* Dark slate blue */
+  --publication-date-color:    #23295f; /* Deep blue-grey */
+  --publication-title-color:   #620d7c; /* Turquoise */
+  --publication-authors-color: #3c1fe1; /* Gray */
+  --publication-list-col: #481e61 !important;
+}
+:root[data-theme="dark"] {
+  /* Dark theme adjustments */
+  --publication-journal-color: #ecf0f1; /* Off-white/light gray */
+  --publication-date-color:    #bdc3c7; /* Silver */
+  --publication-title-color:   #f7b02d; /* Emerald green */
+  --publication-authors-color: #4f9bf2; /* Muted gray */
+  --publication-list-col: #efb924d9 !important;
+}
+/* =====================================
+  PubMed Publications Container Styling
+  Defines the font size and weight for the entire publications section.
+========================================== */
+#pubmed-publications { 
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+/* =====================================
+  PubMed Publications List Styling
+  Sets specialized styles for list items in #pubmed-publications.
+========================================== */
+#pubmed-publications li {
+  list-style: decimal;
+  color: var(--publication-list-col);
+  margin-left: 0.5rem;
+  border-top: 0.1rem dashed var(--publication-list-col);
+  font-family: "Edu VIC WA NT Beginner", sans-serif;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+}
+/* =====================================
+  PubMed Publications Anchor Link Styling
+  Customizes link appearance and behavior within the publications list.
+========================================== */
+#pubmed-publications li a {
+  list-style: upper-roman;
+  text-decoration: none;
+  overflow: hidden;
+}
+#pubmed-publications ul a {
+  list-style: upper-roman;
+  text-decoration: none;
+  overflow: hidden;
+}
+/* =====================================
+  PubMed Publications Anchor Hover Styling
+  Ensures links do not change decoration on hover.
+========================================== */
+#pubmed-publications li a:hover {
+  text-decoration: none;
+}
+/* =====================================
+  Publication Journal Styling
+  Styles the publication journal text for typography and color.
+========================================== */
+.publication-journal {
+  color: var(--publication-journal-color);
+  font-family: "Aleo", serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: bold-italic;
+  letter-spacing: 1px;
+}
+/* =====================================
+  Publication Date Styling
+  Sets typography and padding for publication dates.
+========================================== */
+.publication-date {
+  color: var(--publication-date-color);
+  font-family: "Edu VIC WA NT Beginner", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  padding-right: 1em;
+}
+/* =====================================
+  Publication Title Styling
+  Controls display, font settings, and text overflow properties for publication titles.
+========================================== */
+.publication-title {
+  color: var(--publication-title-color);
+  font-size: 1.2em;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 1.5em;
+  font-family: "Aleo", serif;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  margin-right: 2rem;
+}
+/* =====================================
+  Publication Title Hover Effect
+  Modifies the publication title when hovered.
+========================================== */
+.publication-title:hover {
+  white-space: normal;
+}
+/* =====================================
+  Authors Styling
+  Styles the authors list with typography settings and spacing.
+========================================== */
+.authors {
+  color: var(--publication-authors-color);
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+  font-family: "Edu VIC WA NT Beginner", sans-serif;
+  animation: none;
+}

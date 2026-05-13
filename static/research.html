@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mooasvi_-_Research</title>
+  <!-- Fonts & Material Symbols -->
+   <!-- External CSS and fonts -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/style.main.css">
+  <link rel="stylesheet" href="/publication.css">
+</head>
+ 
+ <body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script type="module" src="/toggle.js"></script>
+
+ <!-- Nav bar -->
+    <div class="container">
+        <div class="nav-bar">
+            <button class="toggle">
+              <span class="material-symbols-outlined icon-sun">light_mode</span>
+              <span class="material-symbols-outlined icon-moon">dark_mode</span>
+            </button>
+    
+          <div class="head-buttons">
+            <a href="/">Home</a>
+            <a href="/about.html">Expertise</a>
+            <a href="/research.html">Research</a>
+            <a href="/projects.html">Projects</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+        
+        <!-- Main grid -->
+    <div style="padding-left: 5rem; padding-right: 5rem;">
+         <section class="section-block">
+            <h3 class="section-title" style="padding-bottom: 1rem;">Research scope</h3>
+            <p style="text-align: justify; font-family: IBM Plex Mono, monospace; font-size: 1.05rem; word-spacing: -5px; padding-bottom: 1rem;">
+              In metastatic cancers, tumors spread and evolve in ways that create a patchwork of different cell populations. This "molecular heterogeneity" makes some cells survive treatments that kill others. Metastasis itself unfolds as a series of steps—escape from the primary site, survival in the blood, seeding new tissues—each step shaped by evolutionary pressures that select for the fittest clones.
+              Finally, patient-derived organoids (PDOs) are mini-tumors grown from a patient's own cells; by testing drugs on these organoids, it is possible to predict which therapies will work best and pinpoint biomarkers that flag response or resistance.
+            </p>
+
+            <h3 class="section-title" style="padding-bottom: 1rem;">Research projects</h3>
+            <div class="expertise-subsection">
+              <h3>Molecular tumor heterogeneity in metastatic cancers</h3>
+              <p style="text-align: justify; font-family: IBM Plex Mono, monospace; font-size: 1rem; word-spacing: -5px; padding-bottom: 0;">
+                Metastatic lesions often harbor multiple genetic subclones that coexist and compete, meaning that even within one patient, different regions of the same cancer can behave very differently under treatment.
+                This diversity arises from ongoing mutations and epigenetic shifts as cells invade new tissues, leading to pockets of drug-resistant cells that fuel relapse.
+              </p>
+              <ul>
+                <li>Relevant goals:</li>
+              </ul>
+            </div>
+
+            <div class="expertise-subsection" style="border-top: 2px dashed var(--h1-color);">
+              <h3>Cancer metastasis development and molecular evolution</h3>
+              <p style="text-align: justify; font-family: IBM Plex Mono, monospace; font-size: 1rem; word-spacing: -5px; margin-bottom: 0;padding-bottom: 0;">
+                Cancer cells leave the primary tumor, survive in circulation, and colonize distant organs through a cascade of steps—each stage applying selective pressure that shapes the genetic makeup of emerging metastases.
+                Recent genetic analyses show that in many cancers, metastatic spread starts years before diagnosis, with metastases often arising from early subclones rather than the dominant primary clone.
+              </p>
+              <ul>
+                <li>Transcriptomic analysis (Limma, EdgeR, DESeq2)</li>
+              </ul>
+            </div>
+
+            <div class="expertise-subsection" style="border-top: 2px dashed var(--h1-color);">
+              <h3>Modeling treatment response in patient-derived tumor organoids and biomarker discovery</h3>
+              <p style="text-align: justify; font-family: IBM Plex Mono, monospace; font-size: 1rem; word-spacing: -5px; margin-bottom: 0;padding-bottom: 0;">
+                PDOs are three-dimensional cultures made from a patient's own tumor tissue that faithfully capture its genetic and cellular complexity.
+                By screening drugs on these organoids, researchers can predict which treatments a patient's tumor will respond to and identify biomarkers—molecular flags—that forecast sensitivity or resistance 
+              </p>
+              <ul>
+                <li>High-performance computing environments; Nextflow; nf-core</li>
+              </ul>
+            </div>
+
+        </section>
+    </div>
+  </div>
+</body>
+</html>

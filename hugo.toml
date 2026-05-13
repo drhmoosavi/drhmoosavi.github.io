@@ -2,47 +2,11 @@ baseURL = "https://drhmoosavi.netlify.app/"
 locale = "en_US"
 title = "Hossein Moosavi"
 enableRobotsTXT = true
+disableKinds = ["home", "taxonomy", "term"]
 
 [permalinks]
   posts = "/blog/:slug/"
-  publications = "/publications/:slug/"
-  projects = "/projects/:slug/"
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
 
 [params]
   author = "Hossein Moosavi"
   description = "Translational cancer research, bioinformatics, and machine learning."
-
-[menu]
-  [[menu.main]]
-    name = "Home"
-    pageRef = "/"
-    weight = 10
-
-  [[menu.main]]
-    name = "Expertise"
-    pageRef = "/about"
-    weight = 20
-
-  [[menu.main]]
-    name = "Research"
-    pageRef = "/research"
-    weight = 30
-
-  [[menu.main]]
-    name = "Projects"
-    pageRef = "/projects"
-    weight = 40
-
-  [[menu.main]]
-    name = "Publications"
-    pageRef = "/publications"
-    weight = 50
-
-  [[menu.main]]
-    name = "Blog"
-    pageRef = "/posts"
-    weight = 60

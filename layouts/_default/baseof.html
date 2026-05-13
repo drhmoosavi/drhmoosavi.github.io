@@ -4,18 +4,36 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  {{ partial "nav.html" . }}
+  <div class="container" id="appContainer">
+    {{ partial "nav.html" . }}
 
-  <main class="site-main" id="main-content">
-    {{ block "main" . }}{{ end }}
-  </main>
+    <main class="left-col" id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
 
-  <aside class="site-sidebar" aria-label="Contact and profiles">
-    {{ partial "social-icons.html" . }}
-  </aside>
+    <aside class="right-col" aria-label="Blog sidebar">
+      <section class="section-block">
+        <h2 class="section-title">Blog</h2>
+        <p style="font-family: IBM Plex Mono, monospace; font-size: 1rem;">Markdown-driven posts, styled consistently with the main site.</p>
+      </section>
+      <section class="section-block">
+        <h3>Recent Posts</h3>
+        <ul>
+          {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </section>
+      <section class="section-block">
+        {{ partial "social-icons.html" . }}
+      </section>
+    </aside>
 
-  {{ partial "footer.html" . }}
+    {{ partial "footer.html" . }}
+  </div>
 
-  <script src="{{ "js/toggle.js" | relURL }}" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script type="module" src="{{ "/toggle.js" | relURL }}"></script>
 </body>
 </html>

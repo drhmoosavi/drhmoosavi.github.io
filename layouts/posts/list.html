@@ -1,18 +1,18 @@
 {{ define "main" }}
-<section class="content-page">
-  <header>
-    <h1>{{ .Title }}</h1>
-    {{ with .Content }}<div class="content-body">{{ . }}</div>{{ end }}
-  </header>
+<section class="section-block">
+  <h1 class="section-title">Blog</h1>
+  {{ with .Content }}
+    <p style="font-family: IBM Plex Mono, monospace; font-size: 1rem;">{{ . | plainify }}</p>
+  {{ end }}
+</section>
 
-  <div class="post-list">
-    {{ range .Pages.ByDate.Reverse }}
-      <article class="post-item">
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <p class="meta">{{ .Date.Format "January 2, 2006" }}</p>
-        {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
-      </article>
-    {{ end }}
-  </div>
+<section class="section-block">
+  {{ range .Pages.ByDate.Reverse }}
+    <article class="expertise-subsection" style="border-top: 2px dashed var(--h1-color); padding-top: 0.8rem; margin-bottom: 1rem;">
+      <h2 style="font-family: Aleo, serif;"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="publication-date">{{ .Date.Format "January 2, 2006" }}</p>
+      {{ with .Params.summary }}<p style="font-family: IBM Plex Mono, monospace; font-size: 0.98rem;">{{ . }}</p>{{ end }}
+    </article>
+  {{ end }}
 </section>
 {{ end }}
